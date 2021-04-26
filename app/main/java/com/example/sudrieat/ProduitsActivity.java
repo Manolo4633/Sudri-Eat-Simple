@@ -1,5 +1,6 @@
 package com.example.sudrieat;
 
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -16,9 +17,12 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class ProduitsActivity extends AppCompatActivity {
 
-    private RecyclerView recyclerView;
-    itemAdapter adapter; // Create Object of the Adapter class
-    DatabaseReference mbase;
+    private RecyclerView recyclerView1;
+    private RecyclerView recyclerView2;
+    itemAdapter adapter1; // Create Object of the Adapter class
+    itemAdapter adapter2;
+    DatabaseReference mbase1; // Create object of the
+    DatabaseReference mbase2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,39 +65,44 @@ public class ProduitsActivity extends AppCompatActivity {
 
         // Create a instance of the database and get
         // its reference
-        mbase = FirebaseDatabase.getInstance().getReference("Products").child("Boissons");
-        recyclerView = findViewById(R.id.recycler1);
+        mbase1 = FirebaseDatabase.getInstance().getReference("Item_test").child("Boisson");
+        mbase2 = FirebaseDatabase.getInstance().getReference("Item_test").child("Produit_sucre");
+        recyclerView1 = findViewById(R.id.recycler1);
+        recyclerView2 = findViewById(R.id.recycler2);
 
         // To display the Recycler view linearly
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView1.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView2.setLayoutManager(new LinearLayoutManager(this));
 
         // It is a class provide by the FirebaseUI to make a
         // query in the database to fetch appropriate data
-        FirebaseRecyclerOptions<item> options
+        FirebaseRecyclerOptions<item> option1
                 = new FirebaseRecyclerOptions.Builder<item>()
-                .setQuery(mbase, item.class)
+                .setQuery(mbase1, item.class)
                 .build();
         // Connecting object of required Adapter class to
         // the Adapter class itself
-        adapter = new itemAdapter(options);
+        adapter1 = new itemAdapter(option1);
         // Connecting Adapter class with the Recycler view*/
-        recyclerView.setAdapter(adapter);
+        recyclerView1.setAdapter(adapter1);
 
 
-
-
-
+        FirebaseRecyclerOptions<item> option2
+                = new FirebaseRecyclerOptions.Builder<item>()
+                .setQuery(mbase2, item.class)
+                .build();
+        adapter2 = new itemAdapter(option2);
+        recyclerView2.setAdapter(adapter2);
 
 
     }
 
-
     // Function to tell the app to start getting
     // data from database on starting of the activity
-    @Override protected void onStart()
-    {
+    @Override protected void onStart() {
         super.onStart();
-        adapter.startListening();
+        adapter1.startListening();
+        adapter2.startListening();
     }
 
     // Function to tell the app to stop getting
@@ -101,6 +110,9 @@ public class ProduitsActivity extends AppCompatActivity {
     @Override protected void onStop()
     {
         super.onStop();
-        adapter.stopListening();
+        adapter1.stopListening();
+        adapter2.stopListening();
     }
+
+
 }
