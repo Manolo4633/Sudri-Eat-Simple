@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ConnecterActivity"
+    android:background="@color/fond_bleu_accueil">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        //------------- Logo -------------
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/logo_avec_cerclage"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"/>
+
+        //------------- Titre -------------
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Identifiez-vous"
+            android:textColor="@color/black"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="5dp"/>
+
+
+        //------------- Identifiant -------------
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Téléphone:"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="40dp"/>
+
+
+        <EditText
+            android:id="@+id/telephone"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="phone"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="50dp"
+            android:hint="Rentrez votre numéro de téléphone"
+            android:textColorHint="@color/gris_sdm" />
+
+
+
+        //------------- Mot de passe -------------
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mot de passe:"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="40dp"/>
+
+
+        <EditText
+            android:id="@+id/mdp"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:hint="Rentrez votre Mot de Passe"
+            android:textColorHint="@color/gris_sdm"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="50dp"/>
+
+
+
+
+        //------------- Boutons Sign In-------------
+        <Button
+            android:id="@+id/se_connecter"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Me connecter"
+            android:layout_marginTop="100dp"
+            android:layout_gravity="center"/>
+
+        <Button
+            android:id="@+id/se_creer_compte"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Me créer un compte"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"/>
+
+
+
+
+    </LinearLayout>
+</RelativeLayout>
