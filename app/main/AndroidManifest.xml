@@ -10,7 +10,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.SudriEat">
+        android:theme="@style/Theme.SudriEat"
+        tools:replace="android:theme">
         <activity android:name=".AdminActivity2"></activity>
         <activity android:name=".AdminActivity1" />
         <activity android:name=".EnregistrerActivity" />
