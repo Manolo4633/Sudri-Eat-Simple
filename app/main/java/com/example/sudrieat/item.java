@@ -1,19 +1,21 @@
 package com.example.sudrieat;
 
+
+
 import java.text.DecimalFormat;
 
 public class item
 {
     // Variable to store data corresponding
-    // to Nom keyword in database
+    // to firstname keyword in database
     private String Nom;
 
     // Variable to store data corresponding
-    // to Prix keyword in database
-    private int Prix;
+    // to lastname keyword in database
+    private double Prix;
 
     // Variable to store data corresponding
-    // to Img keyword in database
+    // to age keyword in database
     private String Img;
 
     // Mandatory empty constructor
@@ -31,13 +33,14 @@ public class item
     }
 
     public double getPrix() { return Prix; }
+
     public String getSPrix(){
-        DecimalFormat df = new DecimalFormat("#.00");
+        DecimalFormat df = new DecimalFormat("#0.00");
         String SPrix= String.valueOf(df.format(getPrix()));
         SPrix=SPrix+" €";
         return SPrix; }
 
-    public void setPrix(int Prix)
+    public void setPrix(double Prix)
     {
         this.Prix = Prix;
     }
