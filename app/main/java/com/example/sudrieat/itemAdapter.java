@@ -1,10 +1,11 @@
 package com.example.sudrieat;
 
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -18,7 +19,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 // FirebaseUI. it provides functions to bind, adapt and show
 // database contents in a Recycler View
 public class itemAdapter extends FirebaseRecyclerAdapter<
-        item, com.example.sudrieat.itemAdapter.itemsViewholder> {
+        item, itemAdapter.itemsViewholder> {
 
     public itemAdapter(
             @NonNull FirebaseRecyclerOptions<item> options)
@@ -61,7 +62,7 @@ public class itemAdapter extends FirebaseRecyclerAdapter<
     {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item, parent, false);
-        return new com.example.sudrieat.itemAdapter.itemsViewholder(view);
+        return new itemAdapter.itemsViewholder(view);
     }
 
     // Sub Class to create references of the views in Crad
