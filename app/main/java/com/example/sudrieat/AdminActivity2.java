@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,7 +13,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.sudrieat.Modele.Item;
-import com.example.sudrieat.Modele.User;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -28,7 +29,34 @@ public class AdminActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin2);
 
+/*------------------ Partie Bottom Navigation -----------------------*/
+        //Initialisation:
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_admin_menu);
 
+        //On met "Ajouter un produit" en selectionne par défaut:
+        bottomNavigationView.setSelectedItemId(R.id.nav_ajouter_produit);
+
+        //Mise en place du Listenner:
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch(menuItem.getItemId()){
+                    case R.id.nav_ajouter_produit:
+                        return true;
+
+                    case R.id.nav_supp_produit:
+                        startActivity(new Intent(getApplicationContext(), AdminActivitySupp.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
+                }
+                return false;
+            }
+        });
+
+
+
+/*------------------ Partie Ajouter un produit -----------------------*/
         EditText nomProduit= findViewById(R.id.editNomProduit);
         EditText prix = findViewById(R.id.editPrixProduit);
         EditText img = findViewById(R.id.editImage);
