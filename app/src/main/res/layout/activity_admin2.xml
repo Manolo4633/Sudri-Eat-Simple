@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -10,137 +9,161 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="600dp"
+        android:layout_height="620dp"
         android:layout_above="@+id/bottom_navigation"
         android:layout_marginBottom="2dp">
 
-        <LinearLayout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        //------------- Titre -------------
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ajoutez un produit"
+            android:layout_gravity="center"
+            android:textSize="30dp"
+            android:layout_marginTop="15dp"/>
+
+
+
+        //------------- Catégorie -------------
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choix de la catégorie:"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="70dp"
+            android:layout_marginLeft="40dp"/>
+
+
+        <Spinner
+            android:id="@+id/choixCategorie"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="50dp"
+            android:entries="@array/categories" />
+
+
+
+        //------------- Nom du produit -------------
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nom du produit:"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="40dp"/>
+
+        <EditText
+            android:id="@+id/editNomProduit"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="50dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="Tapez un nom ici" />
+
+
+
+
+        //------------- Prix du produit -------------
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Prix du produit:"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="40dp"/>
+
+
+
+        <EditText
+            android:id="@+id/editPrixProduit"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="50dp"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:hint="Tapez un prix ici" />
+
+
+        //------------- Image -------------
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Illustration du produit:"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="40dp"/>
+
+
+
+        <EditText
+            android:id="@+id/editImage"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="50dp"
+            android:ems="10"
+            android:inputType="text"
+            android:hint="Coller un lien d'image" />
+
+
+
+        //------------- Stock -------------
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre de produits:"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="40dp"/>
+
+
+
+        <EditText
+            android:id="@+id/editStock"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="50dp"
+            android:ems="10"
+            android:inputType="number"
+            android:hint="Tapez un nombre ici" />
+
+
+
+
+
+        //------------- Bouton valider -------------
+
+        <Button
+            android:id="@+id/ajouter"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="70dp"
+            android:text="Ajouter" />
+
+        <Space
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="45dp"/>
 
 
-            //------------- Titre -------------
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Ajoutez un produit"
-                android:layout_gravity="center"
-                android:textSize="30dp"
-                android:layout_marginTop="15dp"/>
-
-
-
-            //------------- Catégorie -------------
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Choix de la catégorie:"
-                android:textSize="20dp"
-                android:textColor="@color/black"
-                android:layout_marginTop="70dp"
-                android:layout_marginLeft="40dp"/>
-
-
-            <Spinner
-                android:id="@+id/choixCategorie"
-                android:layout_width="320dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="50dp"
-                android:entries="@array/categories" />
-
-
-
-            //------------- Nom du produit -------------
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nom du produit:"
-                android:textSize="20dp"
-                android:textColor="@color/black"
-                android:layout_marginTop="30dp"
-                android:layout_marginLeft="40dp"/>
-
-            <EditText
-                android:id="@+id/editNomProduit"
-                android:layout_width="320dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="50dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:hint="Tapez un nom ici" />
-
-
-
-
-            //------------- Prix du produit -------------
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Prix du produit:"
-                android:textSize="20dp"
-                android:textColor="@color/black"
-                android:layout_marginTop="30dp"
-                android:layout_marginLeft="40dp"/>
-
-
-
-            <EditText
-                android:id="@+id/editPrixProduit"
-                android:layout_width="320dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="50dp"
-                android:ems="10"
-                android:inputType="numberDecimal"
-                android:hint="Tapez un prix ici" />
-
-
-            //------------- Image -------------
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Illustration du produit:"
-                android:textSize="20dp"
-                android:textColor="@color/black"
-                android:layout_marginTop="30dp"
-                android:layout_marginLeft="40dp"/>
-
-
-
-            <EditText
-                android:id="@+id/editImage"
-                android:layout_width="320dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="50dp"
-                android:ems="10"
-                android:inputType="text"
-                android:hint="Coller un lien d'image" />
-
-
-
-
-
-            //------------- Bouton valider -------------
-
-            <Button
-                android:id="@+id/ajouter"
-                android:layout_width="320dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="70dp"
-                android:text="Ajouter" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="45dp"/>
-
-
-        </LinearLayout>
+    </LinearLayout>
 
     </ScrollView>
 

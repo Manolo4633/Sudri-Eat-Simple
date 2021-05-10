@@ -61,6 +61,11 @@ public class AdminActivitySupp extends AppCompatActivity {
                     case R.id.nav_supp_produit:
                         return true;
 
+                    case R.id.nav_stock:
+                        startActivity(new Intent(getApplicationContext(), AdminActivityStock.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
                 }
                 return false;
             }
@@ -111,18 +116,26 @@ public class AdminActivitySupp extends AppCompatActivity {
 
 
         /*------------------ Partie Supprimer un produit -----------------------
+
         //Initialisation de firebase
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference table_products = database.getReference("Products");
+
+
         table_products.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+
                 table_products.updateChildren(null);
+
                 Toast toast = Toast.makeText(getApplicationContext(), "Produit retiré !", Toast.LENGTH_SHORT);
                 toast.show();
+
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
 /*/

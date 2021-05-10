@@ -29,7 +29,7 @@ public class AdminActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin2);
 
-        /*------------------ Partie Bottom Navigation -----------------------*/
+/*------------------ Partie Bottom Navigation -----------------------*/
         //Initialisation:
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_admin_menu);
 
@@ -49,6 +49,11 @@ public class AdminActivity2 extends AppCompatActivity {
                         overridePendingTransition(0,0);
                         return true;
 
+                    case R.id.nav_stock:
+                        startActivity(new Intent(getApplicationContext(), AdminActivityStock.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
                 }
                 return false;
             }
@@ -56,10 +61,11 @@ public class AdminActivity2 extends AppCompatActivity {
 
 
 
-        /*------------------ Partie Ajouter un produit -----------------------*/
+/*------------------ Partie Ajouter un produit -----------------------*/
         EditText nomProduit= findViewById(R.id.editNomProduit);
         EditText prix = findViewById(R.id.editPrixProduit);
         EditText img = findViewById(R.id.editImage);
+        EditText stock = findViewById(R.id.editStock);
         Spinner categorie = findViewById(R.id.choixCategorie);
         Button bouton_ajouter = findViewById(R.id.ajouter);
 
@@ -82,43 +88,50 @@ public class AdminActivity2 extends AppCompatActivity {
                         String prix_string = prix.getText().toString();
                         double prix_double = Double.parseDouble(prix_string);
 
+
+                        //Conversion du stock de String en int:
+                        String stock_string = stock.getText().toString();
+                        int stock_int = Integer.parseInt(stock_string);
+
+
 /*
                         if (nomProduit.getText().toString().isEmpty() || prix.getText().toString().isEmpty())
                         {
                             Toast toast = Toast.makeText(getApplicationContext(), "Il manque des informations !", Toast.LENGTH_SHORT);
                             toast.show();
                         }
+
  */
 
-                        if ("Produits sucrés".equals(item_selectione))
-                        {
-                            //Rajouter produit sucrés
-                            Item item = new Item(nomProduit.getText().toString(), prix_double, img.getText().toString());
-                            table_products.child("Produits_sucres").child(nomProduit.getText().toString()).setValue(item);
+                            if ("Produits sucrés".equals(item_selectione))
+                            {
+                                    //Rajouter produit sucrés
+                                    Item item = new Item(nomProduit.getText().toString(), prix_double, img.getText().toString(), stock_int);
+                                    table_products.child("Produits_sucres").child(nomProduit.getText().toString()).setValue(item);
 
-                            Toast toast = Toast.makeText(getApplicationContext(), "Produit sucré ajouté !", Toast.LENGTH_SHORT);
-                            toast.show();
-                        }
+                                    Toast toast = Toast.makeText(getApplicationContext(), "Produit sucré ajouté !", Toast.LENGTH_SHORT);
+                                    toast.show();
+                            }
 
-                        else if ("Produits salés".equals(item_selectione))
-                        {
-                            //Rajouter produit salés
-                            Item item = new Item(nomProduit.getText().toString(), prix_double, img.getText().toString());
-                            table_products.child("Produits_sales").child(nomProduit.getText().toString()).setValue(item);
+                            else if ("Produits salés".equals(item_selectione))
+                            {
+                                //Rajouter produit salés
+                                Item item = new Item(nomProduit.getText().toString(), prix_double, img.getText().toString(), stock_int);
+                                table_products.child("Produits_sales").child(nomProduit.getText().toString()).setValue(item);
 
-                            Toast toast = Toast.makeText(getApplicationContext(), "Produit salé ajouté !", Toast.LENGTH_SHORT);
-                            toast.show();
-                        }
+                                Toast toast = Toast.makeText(getApplicationContext(), "Produit salé ajouté !", Toast.LENGTH_SHORT);
+                                toast.show();
+                            }
 
-                        else if ("Boissons".equals(item_selectione))
-                        {
-                            //Rajouter boisson
-                            Item item = new Item(nomProduit.getText().toString(), prix_double, img.getText().toString());
-                            table_products.child("Boissons").child(nomProduit.getText().toString()).setValue(item);
+                            else if ("Boissons".equals(item_selectione))
+                            {
+                                //Rajouter boisson
+                                Item item = new Item(nomProduit.getText().toString(), prix_double, img.getText().toString(), stock_int);
+                                table_products.child("Boissons").child(nomProduit.getText().toString()).setValue(item);
 
-                            Toast toast = Toast.makeText(getApplicationContext(), "Boisson ajoutée !", Toast.LENGTH_SHORT);
-                            toast.show();
-                        }
+                                Toast toast = Toast.makeText(getApplicationContext(), "Boisson ajoutée !", Toast.LENGTH_SHORT);
+                                toast.show();
+                            }
 
                     }
 

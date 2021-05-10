@@ -61,8 +61,6 @@ public class AccueilActivity extends AppCompatActivity {
         Button bouton_produits = findViewById(R.id.boutton_produits);
 
         //Mise en place du Listenner:
-        // COUCOU COUCOU
-	// Coucou Manon ! :)
         bouton_produits.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

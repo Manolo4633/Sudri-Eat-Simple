@@ -29,7 +29,7 @@ public class CommandesActivity extends AppCompatActivity {
         //Initialisation:
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
-        //On met Jeux en selectionne par défaut:
+        //On met Commandes en selectionne par défaut:
         bottomNavigationView.setSelectedItemId(R.id.nav_commandes);
 
         //Mise en place du Listenner:

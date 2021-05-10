@@ -60,7 +60,7 @@ public class itemAdapterAdmin extends FirebaseRecyclerAdapter<item, itemAdapterA
         // "item.class")to appropriate view in Card
         // view (here "item.xml")
         Glide.with(holder.Img.getContext()).load(model.getImg()).into(holder.Img);
-
+        
         String id = model.getNom();
 
         holder.Supp.setOnClickListener(new View.OnClickListener() {
@@ -70,6 +70,8 @@ public class itemAdapterAdmin extends FirebaseRecyclerAdapter<item, itemAdapterA
             public void onClick(View v) {
                 //holder.Supp.setText("OK");
                 effacerProduit(id); //appel de la fonction qui va effacer
+
+
                 //item_position = position;
                 /*
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
@@ -80,6 +82,7 @@ public class itemAdapterAdmin extends FirebaseRecyclerAdapter<item, itemAdapterA
                             public void onClick(DialogInterface dialog, int which) {
                                 //suppression du produit
                                 effacerProduit(); //appel de la fonction qui va effacer
+
                             }
                         })
                         .setNegativeButton("Non", new DialogInterface.OnClickListener() {
@@ -90,6 +93,7 @@ public class itemAdapterAdmin extends FirebaseRecyclerAdapter<item, itemAdapterA
                             }
                         })
                         .show();
+
                  */
 
             }

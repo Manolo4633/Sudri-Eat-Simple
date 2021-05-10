@@ -13,9 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SudriEat"
         tools:replace="android:theme">
-        <activity android:name=".AdminActivitySupp"></activity>
+        <activity android:name=".PanierActivity"></activity>
+        <activity android:name=".AdminActivitySupp" />
         <activity android:name=".AdminActivity2" />
         <activity android:name=".AdminActivity1" />
+        <activity android:name=".AdminActivityStock" />
         <activity android:name=".EnregistrerActivity" />
         <activity android:name=".ConnecterActivity" />
         <activity android:name=".CookieActivity" />

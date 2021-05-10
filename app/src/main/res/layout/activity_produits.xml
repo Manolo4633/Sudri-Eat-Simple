@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".ProduitsActivity">
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -76,12 +77,28 @@
                     android:layout_height="match_parent"
                     android:background="@color/cardview_light_background" />
 
+
+
             </LinearLayout>
+
+
+
 
 
         </androidx.core.widget.NestedScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+
+    //Total Panier
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cardview_light_background"
+        tools:ignore="MissingConstraints" />
+
+<!--
     <androidx.cardview.widget.CardView
         android:id="@+id/group_place_holder"
         android:layout_width="match_parent"
@@ -114,6 +131,7 @@
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
+-->
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"

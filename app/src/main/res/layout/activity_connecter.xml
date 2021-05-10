@@ -79,6 +79,17 @@
             android:layout_marginLeft="50dp"/>
 
 
+        //------------- Bouton se souvenir de moi -------------
+        <CheckBox
+            android:id="@+id/se_souvenir_de_moi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Se souvenir de moi"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="50dp"
+            android:buttonTint="@color/jaune_sdm"/>
+
+
 
 
         //------------- Boutons Sign In-------------
@@ -87,7 +98,7 @@
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:text="Me connecter"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="50dp"
             android:layout_gravity="center"/>
 
         <Button

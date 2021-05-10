@@ -8,7 +8,7 @@
 
     <!-- Page d'acceuil -->
     <string name="texte_accueil1">"Sudri'Eat"</string>
-    <string name="texte_accueil2">"Cliquez pour commander (ou autre slogan)"</string>
+    <string name="texte_accueil2">"Commandez en toute simplicité !"</string>
 
 
     <!-- Page Home -->
@@ -19,6 +19,10 @@
 
     <!-- Page Infos -->
     <string name="titre">"Tout ce qu'il y a à savoir est ici !"</string>
+    <string name="utiliser_app1">"Pour réaliser une commande il n'y a rien de plus simple !"</string>
+    <string name="utiliser_app2">"Allez dans l'onglet 'Nos Produits'."</string>
+    <string name="utiliser_app3">"Ensuite remplissez votre panier selon vos envies à l'aide des boutons '+' et '-'..."</string>
+    <string name="utiliser_app4">"...et une fois vos envies assouvies, cliquez sur 'Voir panier' pour avoir accès à un récapitulatif et valider votre panier !"</string>
 
 
     <!-- Page Cookie Clicker -->
