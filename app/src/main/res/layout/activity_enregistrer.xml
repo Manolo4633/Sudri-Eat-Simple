@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EnregistrerActivity"
+    android:background="@color/fond_bleu_accueil">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            //------------- Logo -------------
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:srcCompat="@drawable/logo_avec_cerclage"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"/>
+
+            //------------- Titre -------------
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Créez votre compte"
+                android:textColor="@color/black"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:layout_marginLeft="5dp"/>
+
+
+
+            //------------- Identifiant -------------
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Téléphone:"
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="40dp"/>
+
+
+            <EditText
+                android:id="@+id/telephone"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="phone"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="50dp"
+                android:hint="Tapez ici votre numéro de téléphone"
+                android:textColorHint="@color/gris_sdm" />
+
+
+
+            //------------- Mot de passe -------------
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mot de passe:"
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="40dp"/>
+
+
+            <EditText
+                android:id="@+id/mdp"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="50dp"
+                android:ems="10"
+                android:hint="8 caractères minimum"
+                android:inputType="textPassword"
+                android:textColorHint="@color/gris_sdm" />
+
+
+
+            //------------- Nom -------------
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nom:"
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="40dp"/>
+
+
+            <EditText
+                android:id="@+id/nom"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="50dp"
+                android:ems="10"
+                android:hint="Tapez ici votre Nom"
+                android:inputType="text"
+                android:textColorHint="@color/gris_sdm" />
+
+
+
+            //------------- Prénom -------------
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Prénom:"
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="40dp"/>
+
+
+
+            <EditText
+                android:id="@+id/prenom"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="50dp"
+                android:ems="10"
+                android:hint="Tapez ici votre Prénom"
+                android:inputType="text"
+                android:textColorHint="@color/gris_sdm" />
+
+
+
+            //------------- Date de naissance -------------
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Date de naissance:"
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="40dp"/>
+
+
+            <EditText
+                android:id="@+id/date_naissance"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="50dp"
+                android:ems="10"
+                android:hint="jj/mm/aaaa"
+                android:inputType="date"
+                android:textColorHint="@color/gris_sdm" />
+
+
+            //------------- Classe ?
+
+
+            //------------- Bouton enregistrement -------------
+            <Button
+                android:id="@+id/enregistrer"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:layout_marginBottom="20dp"
+                android:text="S'enregistrer"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PanierActivity">
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="MissingConstraints">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Titre  -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Ma commande"
+            android:layout_gravity="center"
+            android:textSize="30dp" />
+
+
+
+        <!-- Partie Récap du panier -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="10dp"
+            android:text="Récapitulatif du panier:"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_panier"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/cardview_light_background" />
+
+
+
+
+        <!-- Partie Choix du jour de livraison -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="10dp"
+            android:text="Choix de la date de livraison:"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+
+
+        <DatePicker
+            android:id="@+id/calendrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:datePickerMode="spinner"
+            android:minDate="04/01/2021"
+            android:spinnersShown="true"
+            android:calendarViewShown="false"/>
+
+        <TextView
+            android:id="@+id/choix_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="10dp"
+            android:text=" "
+            android:textSize="15dp" />
+
+
+
+        <!-- Partie Choix de l'horaire de livraison -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="10dp"
+            android:text="Choix de l'heure de livraison:"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+
+
+        <Spinner
+            android:id="@+id/choixHeure"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="50dp"
+            android:entries="@array/heures" />
+
+        <TextView
+            android:id="@+id/choix_heure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="10dp"
+            android:text=" "
+            android:textSize="15dp" />
+
+
+        <!-- Boutons de validations et de retour -->
+        <Button
+            android:id="@+id/valider_commande"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="200dp"
+            android:text="Valider la commande"/>
+
+
+
+        <Button
+            android:id="@+id/retour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="Retour" />
+
+    </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>
