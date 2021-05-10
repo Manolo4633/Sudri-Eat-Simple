@@ -155,7 +155,7 @@ public class itemAdapter extends FirebaseRecyclerAdapter<item, itemAdapter.items
             Nombre_produit=itemView.findViewById(R.id.Nombre_produit);
             bouton_plus=itemView.findViewById(R.id.bouton_plus);
             bouton_moins=itemView.findViewById(R.id.bouton_moins);
-            total_panier = itemView.findViewById(R.id.txt_total_price);
+            //total_panier = itemView.findViewById(R.id.txt_total_price);
         }
     }
 }

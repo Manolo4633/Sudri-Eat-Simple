@@ -23,17 +23,17 @@ public class ProduitsActivity extends AppCompatActivity {
     private RecyclerView recyclerView1;
     private RecyclerView recyclerView2;
     private RecyclerView recyclerView3;
-    private RecyclerView recyclerView4;
+    //private RecyclerView recyclerView4;
     itemAdapter adapter1; // Create Object of the Adapter class
     itemAdapter adapter2;
     itemAdapter adapter3;
-    itemAdapter adapter4;
+    //itemAdapter adapter4;
     DatabaseReference mbase1; // Create object of the
     DatabaseReference mbase2;
     DatabaseReference mbase3;
 
-    //double prix_total = 10;
-    //String prix_total_str;
+    double prix_total = 10;
+    String prix_total_str;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,8 +75,8 @@ public class ProduitsActivity extends AppCompatActivity {
         });
 
 
-/*
-        /*------------------ Partie Prix total ------------------------------------
+
+        /*------------------ Partie Prix total ------------------------------------*/
         TextView txt_prix_total = findViewById(R.id.txt_total_price);
 
         //prix_total = récup valeur du prix d'un produit * compteur du produit
@@ -90,7 +90,7 @@ public class ProduitsActivity extends AppCompatActivity {
 
 
 
-        /*------------------ Partie Bouton Panier ------------------------------------
+        /*------------------ Partie Bouton Panier ------------------------------------*/
         //Pour le bouton "Voir panier":
         //Initialisation:
         Button bouton_voir_panier = findViewById(R.id.btn_panier);
@@ -104,7 +104,7 @@ public class ProduitsActivity extends AppCompatActivity {
             }
         });
 
-*/
+
 
 
 
@@ -118,13 +118,13 @@ public class ProduitsActivity extends AppCompatActivity {
         recyclerView1 = findViewById(R.id.recycler1);
         recyclerView2 = findViewById(R.id.recycler2);
         recyclerView3 = findViewById(R.id.recycler3);
-        recyclerView4 = findViewById(R.id.recycler4);
+        //recyclerView4 = findViewById(R.id.recycler4);
 
         // To display the Recycler view linearly
         recyclerView1.setLayoutManager(new LinearLayoutManager(this));
         recyclerView2.setLayoutManager(new LinearLayoutManager(this));
         recyclerView3.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView4.setLayoutManager(new LinearLayoutManager(this));
+        //recyclerView4.setLayoutManager(new LinearLayoutManager(this));
 
         // It is a class provide by the FirebaseUI to make a
         // query in the database to fetch appropriate data
