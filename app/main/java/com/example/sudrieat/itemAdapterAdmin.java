@@ -70,6 +70,8 @@ public class itemAdapterAdmin extends FirebaseRecyclerAdapter<item, itemAdapterA
             public void onClick(View v) {
                 //holder.Supp.setText("OK");
                 effacerProduit(id); //appel de la fonction qui va effacer
+
+
                 //item_position = position;
                 /*
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);

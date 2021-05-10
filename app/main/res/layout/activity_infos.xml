@@ -13,38 +13,181 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         app:menu="@menu/bottom_menu"
-        android:background="@color/gris_bottom_bar" />
+        android:background="@color/gris_bottom_bar" >
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 
-
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="800dp"
+        android:layout_above="@+id/bottom_navigation"
+        >
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:gravity="center"
-            android:text="@string/titre"
-            android:textSize="25dp" />
+            android:layout_height="500dp"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/bouton_jeu_cookie"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/bouton_jeu_cookie"
-            android:layout_gravity="center"
-            android:layout_marginTop="100dp"/>
+            <!-- Titre de la page -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="@string/titre"
+                android:textSize="25dp" />
 
-        <Button
-            android:id="@+id/bouton_deco"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Se déconnecter"
-            android:layout_gravity="center"
-            android:layout_marginTop="30dp"/>
-    </LinearLayout>
+
+            <!-- Séparateur -->
+            <View
+                android:layout_width="360dp"
+                android:layout_height="5dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:background="?android:attr/listDivider" />
+
+
+            <!-- Partie Comment  utiliser l'app-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                android:text="Comment faire une commande ?"
+                android:textColor="@color/black"
+                android:textSize="25dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="8dp"
+                android:gravity="fill_horizontal"
+                android:text="@string/utiliser_app1"
+                android:textSize="20dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:gravity="fill_horizontal"
+                android:text="@string/utiliser_app2"
+                android:textSize="20dp" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="180dp"
+                android:layout_marginTop="20dp"
+                app:srcCompat="@drawable/illustration1" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:translationX="-50dp"
+                android:translationY="-125dp"
+                app:srcCompat="@drawable/cercle_rouge" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:rotation="-20"
+                android:translationX="25dp"
+                android:translationY="-310dp"
+                app:srcCompat="@drawable/fleche_rouge" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:gravity="fill_horizontal"
+                android:text="@string/utiliser_app3"
+                android:translationY="-180dp"
+                android:textSize="20dp" />
+
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:translationY="-170dp"
+                app:srcCompat="@drawable/exemple_bouton_et_" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="85dp"
+                android:translationX="25dp"
+                android:translationY="-260dp"
+                app:srcCompat="@drawable/cercle_rouge" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="85dp"
+                android:translationX="105dp"
+                android:translationY="-345dp"
+                app:srcCompat="@drawable/cercle_rouge" />
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:gravity="fill_horizontal"
+                android:text="@string/utiliser_app4"
+                android:translationY="-330dp"
+                android:textSize="20dp" />
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:translationY="-600dp"
+                app:srcCompat="@drawable/exemple_acces_panier" />
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:rotation="-15"
+                android:translationX="100dp"
+                android:translationY="-1020dp"
+                app:srcCompat="@drawable/fleche_rouge" />
+
+            <!-- Séparateur -->
+            <View
+                android:layout_width="360dp"
+                android:layout_height="5dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:translationY="-100dp"
+                android:background="?android:attr/listDivider" />
+
+
+            <!-- Boutons -->
+            <Button
+                android:id="@+id/bouton_jeu_cookie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:text="@string/bouton_jeu_cookie" />
+
+            <Button
+                android:id="@+id/bouton_deco"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:text="Se déconnecter" />
+        </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>

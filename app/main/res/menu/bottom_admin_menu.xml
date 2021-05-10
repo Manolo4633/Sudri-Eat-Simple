@@ -12,5 +12,10 @@
         android:icon="@drawable/ic_remove"
         android:title="Supprimer un produit"/>
 
+    <item
+        android:id="@+id/nav_stock"
+        android:icon="@drawable/ic__data"
+        android:title="Voir les stocks"/>
+
 
 </menu>

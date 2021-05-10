@@ -61,6 +61,11 @@ public class AdminActivitySupp extends AppCompatActivity {
                     case R.id.nav_supp_produit:
                         return true;
 
+                    case R.id.nav_stock:
+                        startActivity(new Intent(getApplicationContext(), AdminActivityStock.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
                 }
                 return false;
             }

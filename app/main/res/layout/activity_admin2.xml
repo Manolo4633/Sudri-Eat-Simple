@@ -121,6 +121,30 @@
 
 
 
+        //------------- Stock -------------
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre de produits:"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="40dp"/>
+
+
+
+        <EditText
+            android:id="@+id/editStock"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="50dp"
+            android:ems="10"
+            android:inputType="number"
+            android:hint="Tapez un nombre ici" />
+
+
+
 
 
         //------------- Bouton valider -------------
