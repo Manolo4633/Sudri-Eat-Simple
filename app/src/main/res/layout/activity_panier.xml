@@ -64,10 +64,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:datePickerMode="spinner"
-            android:minDate="04/01/2021"
-            android:spinnersShown="true"
-            android:calendarViewShown="false"/>
+            android:layout_marginTop="15dp"/>
 
         <TextView
             android:id="@+id/choix_date"
@@ -76,7 +73,8 @@
             android:layout_marginTop="40dp"
             android:layout_marginLeft="10dp"
             android:text=" "
-            android:textSize="15dp" />
+            android:textSize="8dp"
+            android:textColor="@color/white"/>
 
 
 
@@ -84,7 +82,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="30dp"
             android:layout_marginLeft="10dp"
             android:text="Choix de l'heure de livraison:"
             android:textColor="@color/black"
@@ -106,7 +104,21 @@
             android:layout_marginTop="40dp"
             android:layout_marginLeft="10dp"
             android:text=" "
-            android:textSize="15dp" />
+            android:textSize="8dp"
+            android:textColor="@color/white"/>
+
+
+        <!-- Texte de confirmation horaires + heures -->
+        <TextView
+            android:id="@+id/confirmation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:text=" "
+            android:textSize="8dp"
+            android:textColor="@color/white"/>
+
 
 
         <!-- Boutons de validations et de retour -->
@@ -115,7 +127,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="200dp"
+            android:layout_marginTop="50dp"
             android:text="Valider la commande"/>
 
 

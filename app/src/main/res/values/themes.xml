@@ -32,4 +32,34 @@
     <style name="Theme.SudriEat.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.SudriEat.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+
+    <!-- Thème AlertDialog -->
+    <style name="Alert_Dialog_Custom" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="android:colorBackground">@color/white</item>
+        <item name="android:textColor">@color/gris_sdm</item>
+        <item name="buttonTint">@color/jaune_sdm</item>
+        <item name="textSize">20dp</item>
+        <item name="buttonGravity">center_vertical</item>
+    </style>
+
+    <!-- Thème AlertDialog 2  Widget.MaterialComponents.Button.TextButton -->
+    <style name="Alert_Dialog_Custom2" parent="Theme.MaterialComponents.DayNight.Dialog.Alert">
+        <item name="buttonBarPositiveButtonStyle">@style/Alert.Button.Positive</item>
+        <item name="buttonBarNegativeButtonStyle">@style/Alert.Button.Neutral</item>
+        <item name="buttonBarNeutralButtonStyle">@style/Alert.Button.Neutral</item>
+    </style>
+    <style name="Alert.Button.Positive" parent="Theme.SudriEat">
+        <item name="rippleColor">@color/colorAccent</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="Alert.Button.Neutral" parent="Theme.SudriEat">
+        <item name="rippleColor">@color/colorAccent</item>
+        <item name="android:textColor">@color/gris_sdm</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
 </resources>

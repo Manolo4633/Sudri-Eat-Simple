@@ -1,11 +1,24 @@
 package com.example.sudrieat.Modele;
 
+import java.util.List;
+
 public class User {
     private String Nom;
     private String MdP;
     private String Prenom;
     private String Date_naissance;
     private int admin = 0;
+
+    /*
+    private double total;
+    private String heure_livraison;
+    private String date_livraison;
+    private String date;
+    private String etat;
+
+     */
+
+
 
     public int getAdmin() {
         return admin;
@@ -15,13 +28,15 @@ public class User {
         this.admin = admin;
     }
 
-    public String getDate_naissance() {
+    public String getdate_naissance() {
         return Date_naissance;
     }
 
-    public void setDate_naissance(String date_naissance) {
-        Date_naissance = date_naissance;
+    public void setdate_naissance(String Date_naissance) {
+        Date_naissance = Date_naissance;
     }
+
+
 
     public User(){
 
@@ -51,11 +66,16 @@ public class User {
         Prenom = Prenom;
     }
 
+
+
+    //Constructeur
     public User(String Nom, String MdP, String Prenom, String Date_naissance, int admin) {
         this.Nom = Nom;
         this.MdP = MdP;
         this.Prenom = Prenom;
         this.Date_naissance = Date_naissance;
         this.admin = admin;
+
     }
+
 }

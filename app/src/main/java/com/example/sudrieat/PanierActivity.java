@@ -1,9 +1,12 @@
 package com.example.sudrieat;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -18,6 +21,7 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.Calendar;
@@ -48,15 +52,19 @@ public class PanierActivity extends AppCompatActivity {
         // et du widget Calendrier
         DatePicker datePicker= findViewById(R.id.calendrier);
 
+
+
         // Récupération de l'heure courante
         final Calendar date=Calendar.getInstance();
+
+        datePicker.setMinDate(date.getTimeInMillis());
 
         // Création d'un listener pour notre widget time
         int annee = date.get(date.YEAR);
         int mois = date.get(date.MONTH);
         int jour = date.get(date.DAY_OF_MONTH);
 
-        choix_date.setText("Vous avez sélectionné le: "+ Integer.toString(jour)+"/"+Integer.toString(mois+1)+"/"+Integer.toString(annee));
+        choix_date.setText(Integer.toString(jour)+"/"+Integer.toString(mois+1)+"/"+Integer.toString(annee));
 
         datePicker.init(annee, mois, jour, new OnDateChangedListener() {
             @Override
@@ -64,7 +72,7 @@ public class PanierActivity extends AppCompatActivity {
                 date.set(Calendar.YEAR, year);
                 date.set(Calendar.MONTH, monthOfYear);
                 date.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-                choix_date.setText("Vous avez sélectionné le: "+ Integer.toString(dayOfMonth)+"/"+Integer.toString(monthOfYear+1)+"/"+Integer.toString(year));
+                choix_date.setText(Integer.toString(dayOfMonth)+"/"+Integer.toString(monthOfYear+1)+"/"+Integer.toString(year));
             }
         });
 
@@ -73,6 +81,7 @@ public class PanierActivity extends AppCompatActivity {
         Spinner categorie = findViewById(R.id.choixHeure);
         TextView choix_heure = findViewById(R.id.choix_heure);
 
+        TextView confirmation = findViewById(R.id.confirmation);
 
 
 
@@ -89,10 +98,40 @@ public class PanierActivity extends AppCompatActivity {
 
                 //Choix de la catégorie:
                 heure_selectione = (String) categorie.getSelectedItem();
-                choix_heure.setText("Vous avez sélectioné à: "+heure_selectione);
+                choix_heure.setText(heure_selectione);
 
-                Toast toast = Toast.makeText(getApplicationContext(), "Panier validé !", Toast.LENGTH_SHORT);
-                toast.show();
+                confirmation.setText("Vous avez sélectionné le "+ choix_date.getText().toString()+" à "+choix_heure.getText().toString()+". Confirmer ?");
+
+                /*------------------ Fenêtre Pop-Up de confirmation ---------------------------------------------*/
+                MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(PanierActivity.this);
+                builder.setCancelable(true);
+                builder.setTitle("Confirmation de la commande");
+                builder.setMessage(confirmation.getText().toString());
+                builder.setPositiveButton("Confirmer",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                //confirmation de la commande
+                                //Ecrire ici dans la base de donnée les choix de l'utilisateur...
+                                Toast toast = Toast.makeText(getApplicationContext(), "Panier validé !", Toast.LENGTH_SHORT);
+                                toast.show();
+
+                                finish();
+
+                                startActivity(new Intent(getApplicationContext(), AccueilActivity.class)); //retour au menu d'accueil
+                                overridePendingTransition(0,0);
+                            }
+                        });
+                builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //fermeture de la boite de dialogue
+                        dialog.dismiss();
+                    }
+                });
+
+                AlertDialog dialog = builder.create();
+                dialog.show();
             }
         });
 
@@ -111,6 +150,9 @@ public class PanierActivity extends AppCompatActivity {
             }
         });
     }
+
+
+
 
 
 }
