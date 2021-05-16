@@ -26,11 +26,20 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+                //------------- Titre -------------
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nos produits"
+                    android:layout_gravity="center"
+                    android:textSize="30dp"
+                    android:layout_marginTop="15dp"/>
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="30dp"
                     android:layout_marginEnd="20dp"
                     android:text="Boissons"
                     android:textAllCaps="true"

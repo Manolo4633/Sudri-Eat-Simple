@@ -33,7 +33,7 @@
     <!-- Bouttons de l'app -->
 
     <!-- Page Home -->
-    <string name="bouton_commandes">Faire une Commande</string>
+    <string name="bouton_commandes">Vos Commandes</string>
     <string name="bouton_produits">Nos Produits</string>
 
 

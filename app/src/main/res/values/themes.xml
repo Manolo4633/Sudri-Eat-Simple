@@ -62,4 +62,21 @@
         <item name="android:textSize">14sp</item>
     </style>
 
+
+
+    <!-- Thème DatePicker parent="@android:style/Theme.Holo.Light.Dialog" -->
+    <style name="MyDatePickerStyleTheme" >
+        <item name="android:datePickerStyle">@style/MyDatePickerStyle</item>
+        <item name="android:headerDayOfMonthTextAppearance" tools:ignore="NewApi">@color/jaune_sdm</item>
+        <item name="colorControlActivated">@color/jaune_sdm</item>
+
+
+
+    </style>
+
+    <style name="MyDatePickerStyle" parent="@android:style/Widget.Material.Light.DatePicker" tools:ignore="NewApi">
+        <item name="android:headerBackground">@color/jaune_sdm</item>
+        <item name="android:yearListSelectorColor">@color/white</item>
+    </style>
+
 </resources>

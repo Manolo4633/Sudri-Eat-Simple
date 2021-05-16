@@ -34,11 +34,12 @@
 
 
         <TextView
+            android:id="@+id/sous_titre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/texte_accueil2"
             android:gravity="center"
-            android:textSize="17dp"
+            android:textSize="20dp"
             android:layout_marginTop="50dp"/>
 
         <Button
