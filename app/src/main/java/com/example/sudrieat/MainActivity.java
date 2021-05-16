@@ -19,11 +19,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Pour mettre la police sur le texte
+        //Pour mettre la police sur le texte du titre
         TextView titre = findViewById(R.id.nom);
         Typeface face = Typeface.createFromAsset(getAssets(), "fonts/Nabila.ttf");
         titre.setTypeface(face);
 
+        //Pour mettre la police sur le texte du sous-titre
+        TextView sous_titre = findViewById(R.id.sous_titre);
+        Typeface face2 = Typeface.createFromAsset(getAssets(), "fonts/AdventPro-Medium.ttf");
+        sous_titre.setTypeface(face2);
 
         /*------------------ Pour lancer la page de connection ------------------*/
         //Initialisation:

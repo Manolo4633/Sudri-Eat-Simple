@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +20,11 @@ public class CookieActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cookie);
+
+        //Pour mettre la police sur le texte du titre
+        TextView titre = findViewById(R.id.titre_cookie);
+        Typeface face = Typeface.createFromAsset(getAssets(), "fonts/AdventPro-Bold.ttf");
+        titre.setTypeface(face);
 
         TextView nbr_clics = findViewById(R.id.nbrclics);
         ImageView cookie = findViewById(R.id.cookie);
