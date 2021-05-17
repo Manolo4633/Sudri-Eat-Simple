@@ -3,6 +3,8 @@ package com.example.sudrieat;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
 import android.content.Context;
@@ -20,24 +22,62 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.DecimalFormat;
 import java.util.Calendar;
 import java.util.Date;
 
 public class PanierActivity extends AppCompatActivity {
 
     private String heure_selectione;
+    CartlistAdapter adapter;
+    public static TextView total_panier;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_panier);
 
+
+
+        total_panier=(TextView)findViewById(R.id.Total_cart);
+
+
+
+
         /*------------------ Partie Récap du panier ------------------------------------*/
-        //A compléter....
+        DatabaseReference mbase = FirebaseDatabase.getInstance().getReference("User").child(ConnecterActivity.user_num).child("Cartlist");
+        RecyclerView recyclerView = findViewById(R.id.recycler_panier);
+
+        DatabaseReference order_base = FirebaseDatabase.getInstance().getReference("User").child(ConnecterActivity.user_num).child("Order");
+
+        // To display the Recycler view linearly
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+
+        // It is a class provide by the FirebaseUI to make a
+        // query in the database to fetch appropriate data
+        FirebaseRecyclerOptions<item> option
+                = new FirebaseRecyclerOptions.Builder<item>()
+                .setQuery(mbase, item.class)
+                .build();
+        // Connecting object of required Adapter class to
+        // the Adapter class itself
+        adapter = new CartlistAdapter(option);
+        // Connecting Adapter class with the Recycler view*/
+        recyclerView.setAdapter(adapter);
+
+
+        /*------------------ Total du Panier ---------------------------------------------*/
+
+
 
 
 
@@ -116,6 +156,8 @@ public class PanierActivity extends AppCompatActivity {
                                 Toast toast = Toast.makeText(getApplicationContext(), "Panier validé !", Toast.LENGTH_SHORT);
                                 toast.show();
 
+                               // order_base.setValue(mbase);
+
                                 finish();
 
                                 startActivity(new Intent(getApplicationContext(), AccueilActivity.class)); //retour au menu d'accueil
@@ -151,7 +193,18 @@ public class PanierActivity extends AppCompatActivity {
         });
     }
 
+    @Override protected void onStart() {
+        super.onStart();
+        adapter.startListening();
+    }
 
+    // Function to tell the app to stop getting
+    // data from database on stoping of the activity
+    @Override protected void onStop()
+    {
+        super.onStop();
+        adapter.stopListening();
+    }
 
 
 

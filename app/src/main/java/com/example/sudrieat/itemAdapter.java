@@ -12,35 +12,26 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-import static java.lang.Math.abs;
 
 // FirebaseRecyclerAdapter is a class provided by
 // FirebaseUI. it provides functions to bind, adapt and show
 // database contents in a Recycler View
 public class itemAdapter extends FirebaseRecyclerAdapter<item, itemAdapter.itemsViewholder> {
 
-
-    int compteur = 0;
-    double prix_total = 0;
-    String txt_prix_total;
-/*
-    private static final int LAYOUT_ONE= 0;
-    private static final int LAYOUT_TWO= 1;
-
-    @Override
-    public int getItemViewType(int position)
-    {
-        if(position==0)
-            return LAYOUT_ONE;
-        else
-            return LAYOUT_TWO;
-    }
-*/
+    public static double total_panier;
 
     public itemAdapter(
             @NonNull FirebaseRecyclerOptions<item> options)
@@ -51,13 +42,17 @@ public class itemAdapter extends FirebaseRecyclerAdapter<item, itemAdapter.items
     // Function to bind the view in Card view(here
     // "item.xml") with data in
     // model class(here "item.class")
-    @SuppressLint("WrongConstant")
+
+
     @Override
     protected void
     onBindViewHolder(@NonNull itemsViewholder holder,
                      int position, @NonNull item model)
     {
 
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference table_order = database.getReference("User").child(ConnecterActivity.user_num).child("Cartlist");
 
         // Add Nom from model class (here
         // "item.class")to appropriate view in Card
@@ -74,50 +69,57 @@ public class itemAdapter extends FirebaseRecyclerAdapter<item, itemAdapter.items
         // view (here "item.xml")
         Glide.with(holder.Img.getContext()).load(model.getImg()).into(holder.Img);
 
+        List<Integer> numb = new ArrayList<Integer>();
+        numb.add(0);
+        numb.add(0);
 
 
 
 
-        //quand on clique sur le bouton '+'
-        holder.bouton_plus.setOnClickListener(new View.OnClickListener() {
+        holder.Numb.setOnClickListener(new ElegantNumberButton.OnClickListener() {
+            int i=0;
+
+
             @Override
-            public void onClick(View v) {
-                    compteur ++;
-                    holder.Nombre_produit.setText(Integer.toString(compteur));
+            public void onClick(View view) {
+                String Snum = holder.Numb.getNumber();
+                int numm = Integer.valueOf(Snum);
+                model.setStock(model.getStock() - numm);
+                double total = numm * model.getPrix();
+                int previous_numb = numb.get(1);
+                numb.set(0, previous_numb);
+                numb.set(1, numm);
 
-                //prix_total = model.getPrix() * compteur;
-                //txt_prix_total = String.valueOf(prix_total);
-                //holder.total_panier.setText(txt_prix_total);
+                if (numb.get(1) == 0) {
+                    if (numb.get(0) == 1 && numb.get(1) == 0) {
+                        table_order.child(model.getNom()).removeValue();
+                    }
+                } else {
+                    item order = new item(model.getNom(), model.getPrix(), model.getImg(), numm);
+                    table_order.child(model.getNom()).setValue(order);
+                }
+                ;
+
+                if (numb.get(1) > numb.get(0)){
+                    total_panier+=model.getPrix();
+                }
+                if (numb.get(1) < numb.get(0)) {
+                    total_panier-=model.getPrix();
+                }
+                else {};
+
+                DecimalFormat df = new DecimalFormat("#0.00");
+                String Stotal_panier= String.valueOf(df.format(total_panier));
+                ProduitsActivity.txt_prix_total.setText("Total: "+Stotal_panier+"€");
             }
         });
-
-        //quand on clique sur le bouton '-'
-            holder.bouton_moins.setOnClickListener(new View.OnClickListener() {
-                @SuppressLint("SetTextI18n")
-                @Override
-                public void onClick(View v) {
-
-
-                    if (compteur <= 0)
-                    {
-                        holder.Nombre_produit.setText("0");
-                    }
-                    else
-                     {
-                        compteur--;
-                        holder.Nombre_produit.setText(Integer.toString(compteur));
-
-                         //prix_total = model.getPrix() * compteur;
-                         //txt_prix_total = String.valueOf(prix_total);
-                         //holder.total_panier.setText(txt_prix_total);
-                     }
-
-                }
-            });
 
 
 
     }
+
+
+
 
     // Function to tell the class about the Card view (here
     // "item.xml")in
@@ -125,37 +127,38 @@ public class itemAdapter extends FirebaseRecyclerAdapter<item, itemAdapter.items
     @NonNull
     @Override
     public itemsViewholder
-    onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
+    onCreateViewHolder(@NonNull ViewGroup parent,
+                       int viewType)
     {
-        View view = LayoutInflater.from(parent.getContext())
+        View view
+                = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item, parent, false);
-/*
-        View view2 = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.total_panier, parent, false);*/
         return new itemAdapter.itemsViewholder(view);
 
 
     }
 
-
     // Sub Class to create references of the views in Crad
     // view (here "item.xml")
-    class itemsViewholder extends RecyclerView.ViewHolder {
-        TextView Nom, Prix, Nombre_produit, total_panier;
-        CircleImageView Img;
-        Button bouton_plus, bouton_moins;
 
-        public itemsViewholder(View itemView)
+
+
+    class itemsViewholder
+            extends RecyclerView.ViewHolder {
+        TextView Nom, Prix;
+        CircleImageView Img;
+        ElegantNumberButton Numb;
+
+        public itemsViewholder(@NonNull View itemView)
         {
             super(itemView);
 
             Nom = itemView.findViewById(R.id.Nom);
             Prix = itemView.findViewById(R.id.Prix);
             Img=itemView.findViewById(R.id.Img);
-            Nombre_produit=itemView.findViewById(R.id.Nombre_produit);
-            bouton_plus=itemView.findViewById(R.id.bouton_plus);
-            bouton_moins=itemView.findViewById(R.id.bouton_moins);
-            //total_panier = itemView.findViewById(R.id.txt_total_price);
+            Numb=itemView.findViewById(R.id.number_button);
+
+
         }
     }
 }

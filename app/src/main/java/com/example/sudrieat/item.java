@@ -17,6 +17,13 @@ public class item
     // for use of FirebaseUI
     public item() {}
 
+    public item(String nom, double prix, String img, Integer stock) {
+        Nom = nom;
+        Prix = prix;
+        Img = img;
+        Stock = stock;
+    }
+
 
 
     // Getter and setter method

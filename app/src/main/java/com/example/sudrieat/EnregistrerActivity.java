@@ -31,6 +31,7 @@ public class EnregistrerActivity extends AppCompatActivity {
     private int test_mdp;
     private int test_tel;
     private int admin = 0;
+    public static int page=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +43,9 @@ public class EnregistrerActivity extends AppCompatActivity {
         EditText numero_telephone = findViewById(R.id.telephone);
         EditText prenom = findViewById(R.id.prenom);
         Button bouton_enregistrer = findViewById(R.id.enregistrer);
+
+
+
 
 
         //Initialisation de firebase
@@ -120,12 +124,17 @@ public class EnregistrerActivity extends AppCompatActivity {
                                         }
                                         else
                                         {
+                                            ConnecterActivity.user_num=numero_telephone.getText().toString();
                                             table_user.child(numero_telephone.getText().toString()).setValue(user);
-                                            Toast toast = Toast.makeText(getApplicationContext(), "Enregistré avec succès !", Toast.LENGTH_SHORT);
-                                            toast.show();
+                                            if (page==0) {
+                                                Toast toast = Toast.makeText(getApplicationContext(), "Enregistré avec succès !", Toast.LENGTH_SHORT);
+                                                toast.show();
+                                                page=1;
 
-                                            startActivity(new Intent(getApplicationContext(), AccueilActivity.class));
-                                            overridePendingTransition(0,0);
+                                                startActivity(new Intent(getApplicationContext(), AccueilActivity.class));
+                                                overridePendingTransition(0, 0);
+
+                                            };
                                         }
 
                                     }

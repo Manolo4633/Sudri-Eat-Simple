@@ -20,7 +20,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class ConnecterActivity extends AppCompatActivity {
-
+    public static String user_num;
+    public static int page=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +33,11 @@ public class ConnecterActivity extends AppCompatActivity {
         Button se_connecter = findViewById(R.id.se_connecter);
         Button se_creer_compte = findViewById(R.id.se_creer_compte);
 
+
         //Initialisation de firebase
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference table_user = database.getReference("User");
+
 
         //Quand on clique sur le bouton 'se connecter'
         se_connecter.setOnClickListener(new View.OnClickListener() {
@@ -54,24 +57,36 @@ public class ConnecterActivity extends AppCompatActivity {
 
                             EditText mot_de_passe = findViewById(R.id.mdp);
 
+
                             if (user.getMdP() != null && user.getMdP().equals(mot_de_passe.getText().toString()) && user.getAdmin() == 0)
                             {
-                                // accès au compte utilisateur normal
-                                Toast toast = Toast.makeText(getApplicationContext(), "Vous êtes bien connecté !", Toast.LENGTH_SHORT);
-                                toast.show();
 
-                                startActivity(new Intent(getApplicationContext(), AccueilActivity.class));
-                                overridePendingTransition(0,0);
+                                if (page==0) {
+                                    // accès au compte utilisateur normal
+                                    Toast toast = Toast.makeText(getApplicationContext(), "Vous êtes bien connecté !", Toast.LENGTH_SHORT);
+                                    toast.show();
+                                    page=1;
+                                    user_num= numero_telephone.getText().toString();
+
+                                    startActivity(new Intent(getApplicationContext(), AccueilActivity.class));
+                                    overridePendingTransition(0, 0);
+                                }
                             }
 
                             else if (user.getMdP() != null && user.getMdP().equals(mot_de_passe.getText().toString()) && user.getAdmin() == 1)
                             {
+
+                                user_num= numero_telephone.getText().toString();
+                                if (page==0) {
                                 // accès à l'interface admin
                                 Toast toast = Toast.makeText(getApplicationContext(), "Accès admin autorisé", Toast.LENGTH_SHORT);
                                 toast.show();
+                                page=1;
 
                                 startActivity(new Intent(getApplicationContext(), AdminActivity1.class));
-                                overridePendingTransition(0,0);
+                                overridePendingTransition(0, 0);
+
+                                };
 
                             }
 
@@ -80,6 +95,7 @@ public class ConnecterActivity extends AppCompatActivity {
                                 Toast toast = Toast.makeText(getApplicationContext(), "Mot de passe incorrect", Toast.LENGTH_LONG);
                                 toast.show();
                                 }
+
 
                         }
 
@@ -96,7 +112,9 @@ public class ConnecterActivity extends AppCompatActivity {
                     public void onCancelled(@NonNull DatabaseError error) {
 
                     }
-                });
+                }
+
+                );
             }
         });
 

@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -15,8 +16,11 @@ import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class ProduitsActivity extends AppCompatActivity {
 
@@ -32,13 +36,16 @@ public class ProduitsActivity extends AppCompatActivity {
     DatabaseReference mbase2;
     DatabaseReference mbase3;
 
-    double prix_total = 10;
-    String prix_total_str;
+    public static TextView txt_prix_total;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_produits);
+
+        txt_prix_total = (TextView)findViewById(R.id.txt_total_price);
 
         //Initialisation:
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
@@ -75,14 +82,15 @@ public class ProduitsActivity extends AppCompatActivity {
         });
 
 
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference table_order = database.getReference("User").child(ConnecterActivity.user_num).child("Cartlist");
+
 
         /*------------------ Partie Prix total ------------------------------------*/
-        TextView txt_prix_total = findViewById(R.id.txt_total_price);
 
         //prix_total = récup valeur du prix d'un produit * compteur du produit
 
-        prix_total_str = String.valueOf(prix_total);
-        txt_prix_total.setText("Total: "+prix_total_str);
+
 
 
 
@@ -99,6 +107,7 @@ public class ProduitsActivity extends AppCompatActivity {
         bouton_voir_panier.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 startActivity(new Intent(getApplicationContext(), PanierActivity.class));
                 overridePendingTransition(0,0);
             }
@@ -109,7 +118,11 @@ public class ProduitsActivity extends AppCompatActivity {
 
 
 
+
         /*------------------ Partie Recycler View ------------------------------------*/
+
+
+
         // Create a instance of the database and get
         // its reference
         mbase1 = FirebaseDatabase.getInstance().getReference("Products").child("Boissons");
@@ -146,12 +159,21 @@ public class ProduitsActivity extends AppCompatActivity {
         adapter2 = new itemAdapter(option2);
         recyclerView2.setAdapter(adapter2);
 
+
         FirebaseRecyclerOptions<item> option3
                 = new FirebaseRecyclerOptions.Builder<item>()
                 .setQuery(mbase3, item.class)
                 .build();
         adapter3 = new itemAdapter(option3);
         recyclerView3.setAdapter(adapter3);
+
+
+
+
+
+        table_order.removeValue();
+        CartlistAdapter.toto=0;
+        itemAdapter.total_panier=0;
 
 
 

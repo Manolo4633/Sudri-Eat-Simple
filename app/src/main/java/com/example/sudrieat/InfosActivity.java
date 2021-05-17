@@ -5,12 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -21,7 +19,6 @@ public class InfosActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_infos);
-
 
 
         //Initialisation:
@@ -74,6 +71,8 @@ public class InfosActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
+                EnregistrerActivity.page=0;
+                ConnecterActivity.page=0;
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 overridePendingTransition(0,0);
             }
