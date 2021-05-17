@@ -25,7 +25,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="500dp"
             android:orientation="vertical">
 
             <!-- Titre de la page -->
@@ -115,6 +115,7 @@
                 android:textSize="20dp" />
 
 
+
             <ImageView
                 android:layout_width="370dp"
                 android:layout_height="150dp"
@@ -135,7 +136,6 @@
                 android:translationX="265dp"
                 android:translationY="-170dp"
                 app:srcCompat="@drawable/cercle_rouge" />
-
 
 
             <!-- Partie 3 - Accèder au récap du panier -->
@@ -178,7 +178,7 @@
                 android:background="?android:attr/listDivider" />
 
 
-             <!-- Boutons -->
+            <!-- Boutons -->
             <Button
                 android:id="@+id/bouton_jeu_cookie"
                 android:layout_width="wrap_content"

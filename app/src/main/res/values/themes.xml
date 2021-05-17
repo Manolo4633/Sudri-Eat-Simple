@@ -64,6 +64,8 @@
 
 
 
+
+
     <!-- Thème DatePicker parent="@android:style/Theme.Holo.Light.Dialog" -->
     <style name="MyDatePickerStyleTheme" >
         <item name="android:datePickerStyle">@style/MyDatePickerStyle</item>
